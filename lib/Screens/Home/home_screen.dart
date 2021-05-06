@@ -47,42 +47,70 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body: SingleChildScrollView(
-        child: Container(
-          //padding: const EdgeInsets.all(SizeConfig.defaultSize * 2),
-         // padding: EdgeInsets.all(SizeConfig.defaultSize * 2), //20
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.all(SizeConfig.defaultSize * 2), //20
-                child: TitleText(
-                  title: "Browse by Categories",
-                ),
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Made by  ",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      // fontWeight: FontWeight.w300
+                    ),
+                  ),
+                  Text(
+                    "Ankur Sutariya",
+                    style: TextStyle(
+                        color: Colors.blueAccent,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ],
               ),
-              FutureBuilder(
-                future: fetchCategories(),
-                builder: (context, snapshot) => snapshot.hasData
-                    ? Categories(categories: snapshot.data)
-                    : Center(child: Image.asset("assets/ripple.gif")),
-              ),
-              Divider(height: 5),
-              Padding(
-               // padding: EdgeInsets.symmetric(vertical :SizeConfig.defaultSize * 2), //20
-                padding: EdgeInsets.all(SizeConfig.defaultSize * 2), //20
-                child: TitleText(title: "Recommends For You"),
-              ),
-              // TitleText(title: "Recommends For You",),
-              FutureBuilder(
-                future: fetchProducts(),
-                builder: (context, snapshot) {
-                  return snapshot.hasData
-                      ? RecommandProducts(products: snapshot.data)
-                      : Center(child: Image.asset('assets/ripple.gif'));
-                },
-              ),
+            ),
 
-            ],
-          ),
+            //SizedBox(height: 16.0,),
+            Container(
+              //padding: const EdgeInsets.all(SizeConfig.defaultSize * 2),
+              // padding: EdgeInsets.all(SizeConfig.defaultSize * 2), //20
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(SizeConfig.defaultSize * 2), //20
+                    child: TitleText(
+                      title: "Browse by Categories",
+                    ),
+                  ),
+                  FutureBuilder(
+                    future: fetchCategories(),
+                    builder: (context, snapshot) => snapshot.hasData
+                        ? Categories(categories: snapshot.data)
+                        : Center(child: Image.asset("assets/ripple.gif")),
+                  ),
+                  Divider(height: 5),
+                  Padding(
+                    // padding: EdgeInsets.symmetric(vertical :SizeConfig.defaultSize * 2), //20
+                    padding: EdgeInsets.all(SizeConfig.defaultSize * 2), //20
+                    child: TitleText(title: "Recommends For You"),
+                  ),
+                  // TitleText(title: "Recommends For You",),
+                  FutureBuilder(
+                    future: fetchProducts(),
+                    builder: (context, snapshot) {
+                      return snapshot.hasData
+                          ? RecommandProducts(products: snapshot.data)
+                          : Center(child: Image.asset('assets/ripple.gif'));
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
