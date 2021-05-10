@@ -7,8 +7,6 @@ import 'package:furniture_app/models/Product.dart';
 import '../../constants.dart';
 import '../../size_config.dart';
 
-
-
 //
 // class DetailsScreen extends StatefulWidget {
 //   final Product product;
@@ -90,12 +88,10 @@ import '../../size_config.dart';
 //   }
 // }
 
-
 class DetailsScreen extends StatelessWidget {
   final Product product;
 
   const DetailsScreen({this.product});
-
 
   @override
   Widget build(BuildContext context) {
@@ -143,22 +139,18 @@ class DetailsScreen extends StatelessWidget {
                 ),
               ),
               Positioned(
-                child: Container(
-                  //color: Colors.orange,
-                  height: 280,
-                  width: 280,
-                  child: Hero(
-                    tag: product.id,
-                    child: FadeInImage.assetNetwork(
-                      placeholder: "assets/spinner.gif",
-                      image: product.image,
-                    ),
+                top: SizeConfig.defaultSize * 9.5,
+                right: -SizeConfig.defaultSize * 7.5,
+                child: Hero(
+                  tag: product.id,
+                  child: Image.network(
+                    product.image,
+                    fit: BoxFit.cover,
+                    height: SizeConfig.defaultSize * 37.8, //378
+                    width: SizeConfig.defaultSize * 36.4,
                   ),
                 ),
-
-                top: SizeConfig.defaultSize * 11.5,
-                right: -SizeConfig.defaultSize * 7.5,
-              )
+              ),
             ],
           ),
         ),
