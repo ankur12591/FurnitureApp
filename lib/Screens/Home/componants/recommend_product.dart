@@ -36,8 +36,8 @@ class RecommandProducts extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => DetailsScreen(
-                        //product: products[index],
-                        ),
+                      product: products[index],
+                    ),
                   ));
             }),
       ),
