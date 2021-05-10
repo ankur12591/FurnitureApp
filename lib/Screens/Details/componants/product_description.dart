@@ -13,7 +13,10 @@ class ProductDescription extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(SizeConfig.defaultSize * 2), //20
+      decoration: BoxDecoration(
+        color: Colors.white
+      ),
+      padding: EdgeInsets.symmetric(vertical:SizeConfig.defaultSize * 2), //20
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
